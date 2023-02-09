@@ -8,7 +8,7 @@ from uuid import uuid4
 class BaseModel():
     """Defines all common attributes/methods for other classes
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Class constructor for new base instance object
 
         Attributes:
@@ -16,9 +16,17 @@ class BaseModel():
             created_at (obj): datetime object current date and time of creation
             created_at (obj): datetime object showing current date and time
         """
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k != "__class__":
+                    if k == "created_at" or k == "updated_at":
+                        setattr(self, k, datetime.fromisoformat(str(v)))
+                    else:
+                        setattr(self, k, v)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """ Returns the official string representation of instance object

@@ -24,7 +24,7 @@ class FileStorage():
         """Appends a newly created object to the __objects dictionary
 
         Args:
-            obj (object): 
+            obj (object): BaseModel class instance
         """
         key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj

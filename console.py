@@ -9,9 +9,11 @@ class HBNBCommand(cmd.Cmd):
     intro = "Welcome to XBnB CLI. Enter 'help' for commands and 'quit' to exit"
     prompt = '(hbnb) '
 
+    def do_quit(self, line):
+        """Quit command to exit the program"""
+        return True
+  
     def do_EOF(self, line):
-        """
-        """
         return True
 
     def postloop(self):

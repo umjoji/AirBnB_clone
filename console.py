@@ -13,18 +13,20 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
-    def do_quit(self, line):
-        """Quit command to close the program"""
-        return True
-  
+    def postloop(self):
+        print()
+        print("Goodbye")
+
     def do_EOF(self, line):
         return True
 
     def help_EOF(self):
-        print("EOF terminator to exit the interpreter")
+        print("EOF terminator to end the interpreter")
 
-    def postloop(self):
-        print()
+    def help_quit(self):
+        print("""Quit command to exit the program""")
+
+    do_quit = do_EOF
 
 
 if __name__ == '__main__':

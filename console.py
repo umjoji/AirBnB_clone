@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""
-"""
+"""console module contains a line interpreter built using the cmd.Cmd class"""
 import cmd
 from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -12,16 +12,37 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_create(self, line):
-        """Create new class instance and prints the id: create CLASS_NAME"""
+        """Create new class instance and prints its id: create CLASS_NAME"""
         class_name = line.strip()
-        if not class_name:
-            print("** class name missing **")
-        elif class_name not in BaseModel.__subclasses__() + ["BaseModel"]:
-            print("** class doesn't exist **")
-        else:
-            new_instance = eval(class_name)()
+
+        ret = check_name(class_name)
+        if ret:
+            new_instance = ret()
             new_instance.save()
             print(new_instance.id)
+
+    def do_destroy(self, line):
+        """Deletes an instance based on the class name and id"""
+        args = line.strip().split()
+
+        ret1 = check_name(args)
+        if ret1:
+            ret2 = check_id(args)
+            if ret2:
+                objects = storage.all()
+                key = args[0] + '.' + args[1]
+                del objects[key]
+                storage.save()
+
+    def do_show(self, line):
+        """Prints string representation of instance: show CLASS_NAME ID"""
+        args = line.strip().split()
+
+        ret1 = check_name(args)
+        if ret1:
+            ret2 = check_id(args)
+            if ret2:
+                print(ret2)
 
     def emptyline(self):
         pass
@@ -40,6 +61,47 @@ class HBNBCommand(cmd.Cmd):
         print("""Quit command to exit the program""")
 
     do_quit = do_EOF
+
+def check_name(arg):
+    """Checks validity of class name from user input
+
+        Args:
+            arg (str, list): mandatory command line argument
+
+        Returns:
+            object instance of type(arg) or False (otherwise)
+"""
+    if type(arg) is list and len(arg) > 0:
+        arg = arg[0]
+
+    if not arg:
+        print("** class name missing **")
+        return False
+    elif arg not in globals():
+        print("** class doesn't exist **")
+        return False
+    return globals()[arg]
+
+def check_id(arg):
+    """Checks existence of class instance with uuid from user input
+
+        Args:
+            arg (list): mandatory command line arguments
+
+        Returns:
+            obj (object) if instance object exists or False (otherwise)
+"""
+    if len(arg) == 1:
+        print("** instance id missing **")
+        return False
+    elif len(arg) == 2:
+        objs = storage.all()
+        for id, obj in objs.items():
+            class_name, obj_id = id.split('.')
+            if class_name == arg[0] and obj_id == arg[1]:
+                return obj
+    print("** no instance found **")
+    return False
 
 
 if __name__ == '__main__':

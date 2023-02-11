@@ -21,9 +21,23 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
             print(new_instance.id)
 
+    def do_destroy(self, line):
+        """Deletes an instance based on the class name and id"""
+        args = line.strip().split()
+
+        ret1 = check_name(args)
+        if ret1:
+            ret2 = check_id(args)
+            if ret2:
+                objects = storage.all()
+                key = args[0] + '.' + args[1]
+                del objects[key]
+                storage.save()
+
     def do_show(self, line):
         """Prints string representation of instance: show CLASS_NAME ID"""
         args = line.strip().split()
+
         ret1 = check_name(args)
         if ret1:
             ret2 = check_id(args)
@@ -86,8 +100,8 @@ def check_id(arg):
             class_name, obj_id = id.split('.')
             if class_name == arg[0] and obj_id == arg[1]:
                 return obj
-        print("** no instance found **")
-        return False
+    print("** no instance found **")
+    return False
 
 
 if __name__ == '__main__':

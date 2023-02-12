@@ -11,6 +11,24 @@ class HBNBCommand(cmd.Cmd):
     intro = "Welcome to XBnB CLI. Enter 'help' for commands and 'quit' to exit"
     prompt = '(hbnb) '
 
+    def do_all(self, line):
+        """Prints string representations of all instances: all [CLASS_NAME]"""
+        saved = storage.all()
+        objects = []
+        ret = 0
+
+        if len(line) > 0:
+            class_name = line.strip()
+            ret = check_name(class_name)
+            
+            if not ret:
+                return
+
+        for ids, objs in saved.items():
+            obj = f"{str(objs)}"
+            objects.append(obj)
+        print(objects)
+
     def do_create(self, line):
         """Create new class instance and prints its id: create CLASS_NAME"""
         class_name = line.strip()
@@ -22,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
 
     def do_destroy(self, line):
-        """Deletes an instance based on the class name and id"""
+        """Deletes an instance by class name and id: destroy CLASS_NAME ID"""
         args = line.strip().split()
 
         ret1 = check_name(args)

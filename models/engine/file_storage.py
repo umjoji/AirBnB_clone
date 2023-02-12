@@ -2,6 +2,7 @@
 """file_storage module contains a storage class for storing class objects
 """
 from models.base_model import BaseModel
+from models.user import User
 import json
 
 
@@ -41,5 +42,11 @@ class FileStorage():
                 objs = json.load(f)
                 for key, value in objs.items():
                     self.__objects[key] = eval(value['__class__'])(**value)
+                """
+                for key, attrs in objects.items():
+                    cls_name = attrs["__class__"]
+                    cls = eval(cls_name)
+                    FileStorage.__objects[key] = cls(**attrs)
+                """
         except FileNotFoundError:
             pass

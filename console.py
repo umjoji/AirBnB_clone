@@ -2,6 +2,7 @@
 """console module contains a line interpreter built using the cmd.Cmd class"""
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -23,8 +24,14 @@ class HBNBCommand(cmd.Cmd):
 
             if not ret:
                 return
+            else:
+                for id, obj in saved.items():
+                    if class_name in id.split('.'):
+                        objects.append(f"{str(obj)}")
+                print(objects)
+                return
 
-        for ids, objs in saved.items():
+        for objs in saved.values():
             obj = f"{str(objs)}"
             objects.append(obj)
         print(objects)

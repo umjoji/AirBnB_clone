@@ -2,6 +2,7 @@
 """file_storage module contains a storage class for storing class objects
 """
 from models.base_model import BaseModel
+from models.user import User
 import json
 
 

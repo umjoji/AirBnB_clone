@@ -100,9 +100,9 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in self.classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
-            print("** instance id missing**")
+            print("** instance id missing **")
         elif f"{args[0]}.{args[1]}" not in self.store.keys():
-            print("** no instance found**")
+            print("** no instance found **")
         elif len(args) == 2:
             print("** attribute name missing **")
         elif args[2] in ['id', 'created_at', 'updated_at']:

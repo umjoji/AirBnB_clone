@@ -32,8 +32,12 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        """ Returns the official string representation of instance object"""
+        """ Returns the representaional model of instance object"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+
+    def __repr__(self):
+        """ Returns the official string representation of instance object"""
+        return self.__str__()
 
     def save(self):
         """Updates instance attribute updated_at with the current datetime"""

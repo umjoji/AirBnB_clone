@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             obj_name = "{}.{}".format(args[0], args[1])
             if obj_name not in self.store.keys():
-                print("** no instance found **")                
+                print("** no instance found **")
             else:
                 del self.store[obj_name]
                 storage.save()
@@ -85,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             obj_name = f"{args[0]}.{args[1]}"
             if obj_name not in self.store.keys():
-                print("** no instance found **")                
+                print("** no instance found **")
             else:
                 print(self.store[obj_name])
         except IndexError:

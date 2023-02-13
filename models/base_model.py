@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """base_model module contains a base class for all class objects
 """
-import models
 from datetime import datetime
 from uuid import uuid4
+import models
 
 
 class BaseModel():
@@ -14,16 +14,17 @@ class BaseModel():
 
         Attributes:
             id (str): universal unique identifier of instance
-            created_at (obj): datetime object current date and time of creation
+            created_at (obj): datetime object showing date and time of creation
             updated_at (obj): datetime object showing current date and time
         """
         if len(kwargs) != 0:
             for k, v in kwargs.items():
-                if k != "__class__":
-                    if k in ['created_at', 'updated_at']:
-                        setattr(self, k, datetime.fromisoformat(str(v)))
-                    else:
-                        setattr(self, k, v)
+                if k == "__class__":
+                    pass
+                elif k in ['created_at', 'updated_at']:
+                    setattr(self, k, datetime.fromisoformat(str(v)))
+                else:
+                    setattr(self, k, v)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()

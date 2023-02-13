@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 """console module contains a line interpreter built using the cmd.Cmd class"""
-import cmd
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models.user import User
 from models import storage
+import cmd
 
 
 class HBNBCommand(cmd.Cmd):
@@ -79,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
             ret2 = check_id(args) if len(args) <= 2 else check_id(args[0:2])
             if ret2 and len(args) >= 2:
                 ret3 = check_attr(args)
-                if ret3 and args[2] in ret2.to_dict():
+                if ret3:
                     attr_value = args[3]
                     try:
                         attr_value = int(attr_value)
@@ -92,13 +97,13 @@ class HBNBCommand(cmd.Cmd):
                                 attr_value = attr_value[1:-1]
                     setattr(ret2, args[2], attr_value)
                     ret2.save()
-                elif ret3 and args[2] not in ret2.to_dict():
-                    print("** enter a valid attribute **")
 
     def emptyline(self):
+        """Overwrite default behaviour to repeat last cmd"""
         pass
 
     def postloop(self):
+        """Custom behaviour on end of inte"""
         print()
         print("Goodbye")
 

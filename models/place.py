@@ -6,7 +6,7 @@ from models.base_model import BaseModel
 
 class Place(BaseModel):
     """Defines a Place class that inherits from BaseModel
-    
+
         Attributes:
             city_id (str): unique identifier of the place's city
             user_id (str): unique identifier of the user

@@ -6,7 +6,7 @@ from models.base_model import BaseModel
 
 class Review(BaseModel):
     """Defines a Review class that inherits from BaseModel
-    
+
         Attributes:
             place_id (str): unique identifier of the review's place
             user_id (str): unique identifier of the review owner

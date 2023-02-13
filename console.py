@@ -12,7 +12,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    """ALX command line interpreter for AirBnB Clone"""
+    """Entry to ALX command line interpreter for AirBnB Clone"""
 
     intro = "Welcome to XBnB CLI. Enter 'help' for commands and 'quit' to exit"
     prompt = '(hbnb) '

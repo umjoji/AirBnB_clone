@@ -14,7 +14,6 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     """Entry to ALX command line interpreter for AirBnB Clone"""
 
-    intro = "Welcome to XBnB CLI. Enter 'help' for commands and 'quit' to exit"
     prompt = '(hbnb) '
     classes = {"BaseModel", "User", "State",
                "City", "Amenity", "Place", "Review"}
@@ -118,6 +117,10 @@ class HBNBCommand(cmd.Cmd):
                 attr = attr[1:-1]
             setattr(self.store[key], args[2], type_cast(attr))
             self.store[key].save()
+
+    def emptyline(self):
+        """Overwrite default behaviour to repeat last command"""
+        pass
 
     def do_EOF(self, line):
         return True

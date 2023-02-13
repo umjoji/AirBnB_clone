@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """Defines a class that inherits from BaseModel
+    """Defines a User class that inherits from BaseModel
 
         Attributes:
             email (str): user's email

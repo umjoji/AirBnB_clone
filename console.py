@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 """console module contains a line interpreter built using the cmd.Cmd class"""
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models.user import User
 from models import storage
 import cmd
@@ -94,9 +99,11 @@ class HBNBCommand(cmd.Cmd):
                     ret2.save()
 
     def emptyline(self):
+        """Overwrite default behaviour to repeat last cmd"""
         pass
 
     def postloop(self):
+        """Custom behaviour on end of inte"""
         print()
         print("Goodbye")
 

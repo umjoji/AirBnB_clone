@@ -14,7 +14,7 @@ class BaseModel():
 
         Attributes:
             id (str): universal unique identifier of instance
-            created_at (obj): datetime object current date and time of creation
+            created_at (obj): datetime object showing date and time of creation
             updated_at (obj): datetime object showing current date and time
         """
         if len(kwargs) != 0:

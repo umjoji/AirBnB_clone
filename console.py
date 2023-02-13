@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """console module contains a line interpreter built using the cmd.Cmd class"""
-from models.base_model import BaseModel
 from models.amenity import Amenity
+from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
 from models.review import Review
@@ -16,96 +16,108 @@ class HBNBCommand(cmd.Cmd):
 
     intro = "Welcome to XBnB CLI. Enter 'help' for commands and 'quit' to exit"
     prompt = '(hbnb) '
+    classes = {"BaseModel", "User", "State",
+               "City", "Amenity", "Place", "Review"}
+    store = storage.all()
 
     def do_all(self, line):
-        """Prints string representations of all instances: all [CLASS_NAME]"""
-        saved = storage.all()
-        objects = []
-        ret = 0
+        """Print string representations of all instances: all [CLASS_NAME]"""
+        arg = parse(line)
+        obj_list = []
 
-        if len(line) > 0:
-            class_name = line.strip()
-            ret = check_name(class_name)
-
-            if not ret:
+        if len(arg) > 0:
+            if arg[0] not in self.classes:
+                print("** class doesn't exist **")
                 return
             else:
-                for id, obj in saved.items():
-                    if class_name in id.split('.'):
-                        objects.append(f"{str(obj)}")
-                print(objects)
-                return
-
-        for objs in saved.values():
-            obj = f"{str(objs)}"
-            objects.append(obj)
-        print(objects)
+                for k, v in self.store.items():
+                    if arg[0] in k:
+                        obj_list.append(v)
+        else:
+            for objs in self.store.values():
+                obj_list.append(objs)
+        print(obj_list)
 
     def do_create(self, line):
-        """Create new class instance and prints its id: create CLASS_NAME"""
-        class_name = line.strip()
-
-        ret = check_name(class_name)
-        if ret:
-            new_instance = ret()
+        """Create new class instance and print its id: create CLASS_NAME"""
+        if len(line) == 0:
+            print("** class name missing **")
+        elif line not in self.classes:
+            print("** class doesn't exist **")
+        else:
+            new_instance = eval(line)()
             new_instance.save()
             print(new_instance.id)
 
     def do_destroy(self, line):
-        """Deletes an instance by class name and id: destroy CLASS_NAME ID"""
-        args = line.strip().split()
+        """Delete an instance by class name and id: destroy CLASS_NAME ID"""
+        if len(line) == 0:
+            print("** class name missing **")
+            return
 
-        ret1 = check_name(args)
-        if ret1:
-            ret2 = check_id(args)
-            if ret2:
-                objects = storage.all()
-                key = args[0] + '.' + args[1]
-                del objects[key]
+        args = parse(line)
+        if args[0] not in self.classes:
+            print("** class doesn't exist **")
+            return
+
+        try:
+            obj_name = "{}.{}".format(args[0], args[1])
+            if obj_name not in self.store.keys():
+                print("** no instance found **")                
+            else:
+                del self.store[obj_name]
                 storage.save()
                 print("** deleted successfully **")
+        except IndexError:
+            print("** instance id missing **")
 
     def do_show(self, line):
-        """Prints string representation of instance: show CLASS_NAME ID"""
-        args = line.strip().split()
+        """Print string representation of instance: show CLASS_NAME ID"""
+        if len(line) == 0:
+            print("** class name missing **")
+            return
 
-        ret1 = check_name(args)
-        if ret1:
-            ret2 = check_id(args)
-            if ret2:
-                print(ret2)
+        args = parse(line)
+        if args[0] not in self.classes:
+            print("** class doesn't exist **")
+            return
+
+        try:
+            obj_name = f"{args[0]}.{args[1]}"
+            if obj_name not in self.store.keys():
+                print("** no instance found **")                
+            else:
+                print(self.store[obj_name])
+        except IndexError:
+            print("** instance id missing **")
 
     def do_update(self, line):
-        """Updates instance attribute: update CLASS_NAME ID ATTRIBUTE VALUE"""
-        args = line.strip().split()
+        """Update instance attribute: update CLASS_NAME ID ATTRIBUTE VALUE"""
+        args = parse(line)
 
-        ret1 = check_name(args)
-        if ret1 and len(args) > 0:
-            ret2 = check_id(args) if len(args) <= 2 else check_id(args[0:2])
-            if ret2 and len(args) >= 2:
-                ret3 = check_attr(args)
-                if ret3:
-                    attr_value = args[3]
-                    try:
-                        attr_value = int(attr_value)
-                    except ValueError:
-                        try:
-                            attr_value = float(attr_value)
-                        except ValueError:
-                            if attr_value[0] in ["'", '"'] \
-                               and attr_value[0] == attr_value[-1]:
-                                attr_value = attr_value[1:-1]
-                    setattr(ret2, args[2], attr_value)
-                    ret2.save()
+        if len(args) == 0:
+            print("** class name is missing **")
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing**")
+        elif f"{args[0]}.{args[1]}" not in self.store.keys():
+            print("** no instance found**")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif args[2] in ['id', 'created_at', 'updated_at']:
+            print(f"** cannot update {args[2]} **")
+        elif len(args) == 3:
+            print("** value missing **")
+        else:
+            key = "{}.{}".format(args[0], args[1])
+            type_cast = type(eval(args[3]))
+            attr = args[3]
 
-    def emptyline(self):
-        """Overwrite default behaviour to repeat last cmd"""
-        pass
-
-    def postloop(self):
-        """Custom behaviour on end of inte"""
-        print()
-        print("Goodbye")
+            if attr[0] in ["'", '"'] and attr[0] == attr[-1]:
+                attr = attr[1:-1]
+            setattr(self.store[key], args[2], type_cast(attr))
+            self.store[key].save()
 
     def do_EOF(self, line):
         return True
@@ -119,69 +131,9 @@ class HBNBCommand(cmd.Cmd):
     do_quit = do_EOF
 
 
-def check_name(arg):
-    """Checks validity of class name from user input
-
-        Args:
-            arg (str, list): mandatory command line argument
-
-        Returns:
-            object instance of type(arg) or False (otherwise)
-"""
-    if type(arg) is list and len(arg) > 0:
-        arg = arg[0]
-
-    if not arg:
-        print("** class name missing **")
-        return False
-    elif arg not in globals():
-        print("** class doesn't exist **")
-        return False
-    return globals()[arg]
-
-
-def check_id(arg):
-    """Checks existence of class instance with uuid from user input
-
-        Args:
-            arg (list): mandatory command line arguments
-
-        Returns:
-            obj (object) if instance object exists or False (otherwise)
-"""
-    if len(arg) == 1:
-        print("** instance id missing **")
-        return False
-    elif len(arg) == 2:
-        objs = storage.all()
-        for id, obj in objs.items():
-            class_name, obj_id = id.split('.')
-            if class_name == arg[0] and obj_id == arg[1]:
-                return obj
-    print("** no instance found **")
-    return False
-
-
-def check_attr(arg):
-    """Checks existence of attribute in class instance dictionary
-        Args:
-            arg (list): mandatory command line arguments
-
-        Returns:
-            [attribute_name, attribute_value] if object exists or False (FAIL)
-    """
-    if len(arg) == 2:
-        print("** attribute name missing **")
-        return False
-    elif len(arg) >= 4:
-        if arg[2] not in ['id', 'created_at', 'updated_at']:
-            if arg[3] and isinstance(arg[3], (int, float, str)):
-                return True
-        else:
-            print("** cannot update {:s}**".format(arg[2]))
-            return False
-    print("** value missing **")
-    return False
+def parse(line):
+    """Helper function to parse user input"""
+    return tuple(line.strip().split())
 
 
 if __name__ == '__main__':

@@ -54,7 +54,6 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print("** class name missing **")
             return
-
         args = parse(line)
         if args[0] not in self.classes:
             print("** class doesn't exist **")
@@ -76,7 +75,6 @@ class HBNBCommand(cmd.Cmd):
         if len(line) == 0:
             print("** class name missing **")
             return
-
         args = parse(line)
         if args[0] not in self.classes:
             print("** class doesn't exist **")

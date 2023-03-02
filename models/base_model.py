@@ -10,7 +10,8 @@ class BaseModel():
     """Defines all common attributes/methods for other classes
     """
     def __init__(self, *args, **kwargs):
-        """Class constructor for new base instance object
+        """
+	Class constructor for new base instance object
 
         Attributes:
             id (str): universal unique identifier of instance
@@ -32,11 +33,11 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        """ Returns the representaional model of instance object"""
+        """Returns the representaional model of instance object"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def __repr__(self):
-        """ Returns the official string representation of instance object"""
+        """Returns the official string representation of instance object"""
         return self.__str__()
 
     def save(self):
@@ -45,7 +46,8 @@ class BaseModel():
         models.storage.save()
 
     def to_dict(self):
-        """Returns:
+        """
+	Returns:
             dictionary (dict): all keys/values of __dict__ of the instance:
         """
         dictionary = self.__dict__.copy()

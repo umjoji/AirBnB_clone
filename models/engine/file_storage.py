@@ -12,7 +12,8 @@ import json
 
 
 class FileStorage():
-    """Serializes instances to JSON file and deserializes JSON file to instance
+    """
+    Serializes instances to JSON file and deserializes JSON file to instance
 
     Attributes:
         __file_path (str): path of JSON file in directory
@@ -26,7 +27,8 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        """Appends a newly created object to the __objects dictionary
+        """
+	Appends a newly created object to the __objects dictionary
 
         Args:
             obj (object): BaseModel class instance

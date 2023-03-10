@@ -2,6 +2,17 @@ header {
 	height: 70px;
 	width: 100%;
 
-	border-bottom: 1px #CCCCCC;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	border-bottom: 1px solid #CCCCCC;
 	background-color: white;
+}
+
+.logo::before {
+	content: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/logo.png");
+	display: block;
+	margin-left: 20px;
 }

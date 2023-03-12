@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AirBnB Clone</title>
+	<link rel="stylesheet" href="styles/4-common.css">
+	<link rel="stylesheet" href="styles/3-header.css">
+	<link rel="stylesheet" href="styles/3-footer.css">
+	<link rel="stylesheet" href="styles/6-filters.css">
+	<link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<header>
+		<nav class="logo"></nav>
+	</header>
+
+	<div class="container">
+		<section class="filters">
+			<div class="filter locations">
+				<h3>States</h3>
+				<h4>New York, California...</h4>
+
+				<ul class="popover">
+					<h2 class="state">New York</h2>
+					<li>Manhattan</li>
+					<li>Queens</li>
+				</ul>
+
+				<ul class="popover">
+					<h2 class="state">California</h2>
+					<li>Los Angeles</li>
+					<li>Palo Alto</li>
+				</ul>
+			</div>
+
+			<div class="filter amenities">
+				<h3>Amenities</h3>
+				<h4>Wi-Fi, Pool...</h4>
+
+				<ul class="popover">
+					<li>Wi-Fi</li>
+					<li>Pool</li>
+					<li>Arcade</li>
+					<li>Parking</li>
+				</ul>
+			</div>
+
+			<button class="button" type="submit">Search</button>
+		</section>
+	</div>
+
+	<footer>
+		<p>Best School</p>
+	</footer>
+</body>
+
+</html>
+
+Write an HTML page that displays a header, footer and a filters box with dropdown.
+Layout: (based on 5-index.html)
+
+Update Locations and Amenities filters to display a contextual dropdown when the mouse is on the filter div:
+tag ul
+classname popover
+text should be fake now
+inside each div
+not displayed by default
+color #FAFAFA
+width same as the div filter
+border #DDDDDD 1px with border radius 4px
+no list display
+
+Location filter has 2 levels of ul/li:
+state -> cities
+state name must be display in a h2 tag (font size 16px)
+
+Requirements:
+You must use: header, footer, section, button, h3, h4, ul, li tags
+No inline style
+You are not allowed to use the img tag
+You are not allowed to use the style tag in the head tag
+All images must be stored in the images folder
+
+You must have 4 CSS files:
+styles/4-common.css: for the global style (body and .container styles)
+styles/3-header.css: for the header style
+styles/3-footer.css: for the footer style
+styles/6-filters.css: for the filters style

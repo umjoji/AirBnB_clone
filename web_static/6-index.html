@@ -25,15 +25,21 @@
 				<h4>New York, California...</h4>
 
 				<ul class="popover">
-					<h2 class="state">New York</h2>
-					<li>Manhattan</li>
-					<li>Queens</li>
-				</ul>
+					<li class="dropdown">
+						<h2 class="state">New York</h2>
+						<ul>
+							<li><a href="#">Manhattan</a></li>
+							<li><a href="#">Queens</a></li>
+						</ul>
+					</li>
 
-				<ul class="popover">
-					<h2 class="state">California</h2>
-					<li>Los Angeles</li>
-					<li>Palo Alto</li>
+					<li class="dropdown">
+						<h2 class="state">California</h2>
+						<ul>
+							<li><a href="#">Los Angeles</a></li>
+							<li><a href="#">Palo Alto</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 
@@ -42,10 +48,10 @@
 				<h4>Wi-Fi, Pool...</h4>
 
 				<ul class="popover">
-					<li>Wi-Fi</li>
-					<li>Pool</li>
-					<li>Arcade</li>
-					<li>Parking</li>
+					<li class="dropdown"><a href="#">Wi-Fi</a></li>
+					<li class="dropdown"><a href="#">Pool</a></li>
+					<li class="dropdown"><a href="#">Arcade</a></li>
+					<li class="dropdown"><a href="#">Parking</a></li>
 				</ul>
 			</div>
 
@@ -63,7 +69,8 @@
 Write an HTML page that displays a header, footer and a filters box with dropdown.
 Layout: (based on 5-index.html)
 
-Update Locations and Amenities filters to display a contextual dropdown when the mouse is on the filter div:
+Update Locations and Amenities filters to display a contextual dropdown
+when the mouse is on the filter div:
 tag ul
 classname popover
 text should be fake now

@@ -16,6 +16,7 @@
 	width: 25%;
 	height: 100%;
 
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -29,6 +30,38 @@
 
 .amenities {
 	margin-left: -100px;
+}
+
+.filter:hover {
+	cursor: pointer;
+}
+
+.popover {
+	width: 100%;
+	display: none;
+	position: absolute;
+
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	background-color: #FAFAFA;
+}
+
+.filter:hover .popover {
+	display: block;
+}
+
+.popover,
+.popover ul {
+	list-style-type: none;
+}
+
+.popover li {
+	display: block;
+}
+
+.popover a {
+	text-decoration: none;
+	color: inherit;
 }
 
 h2 {
@@ -59,6 +92,6 @@ h4 {
 	color: #FFFFFF;
 }
 
-button:active {
+button:hover {
 	opacity: 90%;
 }

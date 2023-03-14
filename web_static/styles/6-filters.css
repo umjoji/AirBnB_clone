@@ -1,13 +1,10 @@
 .filters {
-	width: 100%;
-	height: 70px;
 	position: relative;
-
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	/* align-items: center; 
-	 place-items: center; */
 
+	width: 100%;
+	height: 70px;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	background-color: white;
@@ -18,12 +15,6 @@
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(4, 17.5px);
-	place-items: stretch;
-
-	/* display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: left; */
 }
 
 .grid-item {
@@ -43,20 +34,68 @@
 }
 
 .popover {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	display: none;
-
 	position: absolute;
 	top: 100%;
 	left: 0;
 	z-index: 1;
 
+	display: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	background-color: #FAFAFA;
-	list-style: none;
+
+}
+
+h2 {
+	font-size: 16px;
+}
+
+h3 {
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 3;
+
+	margin: 0px;
+	font-weight: 600;
+}
+
+h4 {
+	grid-column-start: 2;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+
+	margin: 0px;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.button {
+	grid-column-start: 4;
+	grid-column-end: 5;
+	justify-self: end;
+	align-self: center;
+
+	width: 80%;
+	height: 48px;
+	margin-right: 30px;
+	border: 0;
+	border-radius: 4px;
+
+	font-size: 18px;
+	background-color: #FF5A5F;
+	color: #FFFFFF;
+}
+
+button:hover {
+	cursor: pointer;
+	opacity: 90%;
 }
 
 .filters:hover {
@@ -67,10 +106,6 @@
 	display: block;
 }
 
-.popover ul:hover {
-	display: block;
-}
-
 .popover li {
 	display: block;
 }
@@ -78,51 +113,4 @@
 .popover a {
 	text-decoration: none;
 	color: inherit;
-}
-
-h2 {
-	font-size: 16px;
-}
-
-h3 {
-	margin: 0px;
-	font-weight: 600;
-
-	grid-column-start: 2;
-	grid-column-end: 4;
-	grid-row-start: 2;
-	grid-row-end: 3;
-}
-
-h4 {
-	margin: 0px;
-	font-size: 14px;
-	font-weight: 400;
-
-	grid-column-start: 2;
-	grid-column-end: 5;
-	grid-row-start: 3;
-	grid-row-end: 4;
-}
-
-.button {
-	width: 80%;
-	height: 48px;
-	margin-right: 30px;
-	border: 0;
-	border-radius: 4px;
-
-	grid-column-start: 4;
-	grid-column-end: 5;
-	justify-self: end;
-	align-self: center;
-
-	font-size: 18px;
-	background-color: #FF5A5F;
-	color: #FFFFFF;
-}
-
-button:hover {
-	opacity: 90%;
-	cursor: pointer;
 }

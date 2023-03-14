@@ -117,11 +117,6 @@ h4 {
 	color: #FFFFFF;
 }
 
-button:hover {
-	cursor: pointer;
-	opacity: 90%;
-}
-
 .filters:hover {
 	cursor: pointer;
 }
@@ -132,4 +127,9 @@ button:hover {
 
 .filter:hover .dropdown {
 	display: flex;
+}
+
+button:hover {
+	cursor: pointer;
+	opacity: 90%;
 }

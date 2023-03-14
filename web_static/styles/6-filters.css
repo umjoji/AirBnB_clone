@@ -42,13 +42,37 @@
 	display: none;
 	width: 100%;
 	margin: 0;
-	padding: 0;
+	padding: 20px 0;
 
 	list-style: none;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	background-color: #FAFAFA;
+}
 
+.popover li {
+	display: block;
+}
+
+.popover a {
+	padding: 1px 0;
+	text-decoration: none;
+	color: inherit;
+}
+
+.dropdown {
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 50px;
+	text-align: left;
+}
+
+.sub-grid-item {
+	margin: -7.5px 0 5px -20px;
+}
+
+.sub-grid-item li {
+	padding: 2px 0;
 }
 
 h2 {
@@ -106,11 +130,6 @@ button:hover {
 	display: block;
 }
 
-.popover li {
-	display: block;
-}
-
-.popover a {
-	text-decoration: none;
-	color: inherit;
+.filter:hover .dropdown {
+	display: flex;
 }

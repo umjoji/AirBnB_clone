@@ -3,7 +3,6 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
-	align-items: space-evenly;
 }
 
 .places h1 {
@@ -23,4 +22,5 @@
 .place h2 {
 	font-size: 30px;
 	text-align: center;
+	margin: 0 auto;
 }

@@ -13,12 +13,11 @@
 
 .place {
 	display: flex;
+	flex-flow: column nowrap;
+
 	width: 390px;
 	margin: 20px;
 	padding: 20px;
-
-	flex-flow: column nowrap;
-	justify-content: space-evenly;
 	border: 1px solid #FF5A5F;
 	border-radius: 4px;
 }

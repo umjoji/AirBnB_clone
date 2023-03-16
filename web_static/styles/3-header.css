@@ -12,7 +12,7 @@ header {
 }
 
 .logo::before {
-	content: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/logo.png");
+	content: url("/images/logo.png");
 	display: block;
 	margin-left: 20px;
 }

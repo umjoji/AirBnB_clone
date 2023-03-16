@@ -80,17 +80,25 @@
 
 .max_guest::before {
 	display: block;
-	content: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_group.png");
+	content: url("/images/guests.png");
 }
 
 .number_rooms::before {
 	display: block;
-	content: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_bed.png");
+	content: url("/images/bed.png");
 }
 
 .number_bathrooms::before {
 	display: block;
-	content: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_bath.png");
+	content: url("/images/bath.png")
+}
+
+.user p {
+	margin: 15px 0;
+}
+
+.description p {
+	margin: 10px 0 0;
 }
 
 .amenity,
@@ -100,20 +108,66 @@
 
 .amenity h2,
 .reviews h2 {
-	padding: 10px;
+	margin: 0 0 15px;
+	padding: 0 0 10px;
 	border-bottom: 1px solid #DDDDDD;
 	font-size: 16px;
 }
 
-.amenity>ul,
-.reviews>ul {
+.amenity ul {
+	position: relative;
+	padding-left: 25px;
+}
+
+.amenity li {
+	margin: 10px 0;
+	padding-left: 10px;
+}
+
+.amenity span {
+	position: relative;
+	top: -2px;
+}
+
+.reviews ul {
+	padding: 0;
 	list-style: none;
 }
 
 .reviews h3 {
+	margin: 15px 0 2px;
 	font-size: 14px;
 }
 
 .reviews p {
+	margin: 0 0 15px;
 	font-size: 12px;
+}
+
+.game {
+	list-style: url("/images/game.png");
+}
+
+.gym {
+	list-style: url("/images/gym.png");
+}
+
+.meal {
+	list-style: url("/images/food.png");
+}
+
+.pet {
+	list-style: url("/images/pets.png");
+}
+
+.pool {
+	list-style: url("/images/pool.png");
+}
+
+.tv {
+	list-style: url("/images/tv.png");
+}
+
+.wifi {
+	list-style: url("/images/wifi.png");
 }

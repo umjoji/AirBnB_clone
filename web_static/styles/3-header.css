@@ -12,7 +12,7 @@ header {
 }
 
 .logo::before {
-	content: url("/images/logo.png");
+	content: url("../images/logo.png");
 	display: block;
 	margin-left: 20px;
 }

@@ -80,17 +80,17 @@
 
 .max_guest::before {
 	display: block;
-	content: url("/images/guests.png");
+	content: url("../images/guests.png");
 }
 
 .number_rooms::before {
 	display: block;
-	content: url("/images/bed.png");
+	content: url("../images/bed.png");
 }
 
 .number_bathrooms::before {
 	display: block;
-	content: url("/images/bath.png")
+	content: url("../images/bath.png")
 }
 
 .user p {
@@ -145,29 +145,29 @@
 }
 
 .game {
-	list-style: url("/images/game.png");
+	list-style: url("../images/game.png");
 }
 
 .gym {
-	list-style: url("/images/gym.png");
+	list-style: url("../images/gym.png");
 }
 
 .meal {
-	list-style: url("/images/food.png");
+	list-style: url("../images/food.png");
 }
 
 .pet {
-	list-style: url("/images/pets.png");
+	list-style: url("../images/pets.png");
 }
 
 .pool {
-	list-style: url("/images/pool.png");
+	list-style: url("../images/pool.png");
 }
 
 .tv {
-	list-style: url("/images/tv.png");
+	list-style: url("../images/tv.png");
 }
 
 .wifi {
-	list-style: url("/images/wifi.png");
+	list-style: url("../images/wifi.png");
 }

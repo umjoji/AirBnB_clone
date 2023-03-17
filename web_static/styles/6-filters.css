@@ -61,10 +61,10 @@
 }
 
 .dropdown {
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	padding-left: 50px;
-	text-align: left;
 }
 
 .sub-grid-item {
@@ -123,10 +123,6 @@
 
 .filter:hover .popover {
 	display: block;
-}
-
-.filter:hover .dropdown {
-	display: flex;
 }
 
 button:hover {

@@ -7,7 +7,7 @@
 
 .places h1 {
 	width: 100%;
-	margin: 25px 0 5px;
+	margin: 25px 0 5px 20px;
 	font-size: 30px;
 }
 
@@ -173,4 +173,31 @@
 
 .wifi {
 	list-style: url("../images/wifi.png");
+}
+
+@media screen and (max-width: 540px) {
+	.filters {
+		display: flex;
+		flex-direction: column;
+		height: 175px;
+		border: none;
+		margin-bottom: 30px;
+	}
+
+	.filter {
+		border: 1px solid #DDDDDD;
+	}
+
+	.button {
+		width: 75%;
+		margin: 20px auto 0px;
+		padding: 15px;
+	}
+
+	.popover {
+		top: 0;
+		left: 50%;
+		width: 50%;
+		z-index: 1;
+	}
 }

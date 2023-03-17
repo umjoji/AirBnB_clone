@@ -1,4 +1,4 @@
 # AirBnB Clone Web Static
 
 
-![AirBnB Landing Page](/images/airbnb_clone.png "AirBnB Clone")
+![AirBnB HomePage Screenshot](/images/airbnb_clone.png "AirBnB Clone Landing Page")

@@ -75,22 +75,25 @@
 .max_guest,
 .number_rooms,
 .number_bathrooms {
+	display: inline-block;
 	width: 100px;
+	height: 100%;
+
+	line-height: 130px;
+	background-position: 50% 5px;
+	background-repeat: no-repeat;
 }
 
-.max_guest::before {
-	display: block;
-	content: url("../images/guests.png");
+.max_guest {
+	background-image: url("../images/guests.png");
 }
 
-.number_rooms::before {
-	display: block;
-	content: url("../images/bed.png");
+.number_rooms {
+	background-image: url("../images/bed.png");
 }
 
-.number_bathrooms::before {
-	display: block;
-	content: url("../images/bath.png")
+.number_bathrooms {
+	background-image: url("../images/bath.png")
 }
 
 .user p {

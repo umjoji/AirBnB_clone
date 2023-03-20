@@ -1,2 +1,2 @@
 # AirBnB Clone
-_temp desc_
+temp_desc

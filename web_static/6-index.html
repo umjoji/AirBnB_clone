@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AirBnB Clone</title>
+	<link rel="stylesheet" href="styles/4-common.css">
+	<link rel="stylesheet" href="styles/3-header.css">
+	<link rel="stylesheet" href="styles/3-footer.css">
+	<link rel="stylesheet" href="styles/6-filters.css">
+	<link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<header>
+		<nav class="logo"></nav>
+	</header>
+
+	<div class="container">
+		<section class="filters">
+			<div class="filter grid-item locations">
+				<h3>States</h3>
+				<h4>New York, California...</h4>
+
+				<ul class="popover">
+					<li class="dropdown">
+						<h2 class="state">New York:</h2>
+						<ul class="sub-grid-item">
+							<li><a href="#">Manhattan</a></li>
+							<li><a href="#">Queens</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown">
+						<h2 class="state">California:</h2>
+						<ul class="sub-grid-item">
+							<li><a href="#">Los Angeles</a></li>
+							<li><a href="#">Palo Alto</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="filter grid-item amenities">
+				<h3>Amenities</h3>
+				<h4>Wi-Fi, Pool...</h4>
+
+				<ul class="popover">
+					<li class="dropdown"><a href="#">Wi-Fi</a></li>
+					<li class="dropdown"><a href="#">Pool</a></li>
+					<li class="dropdown"><a href="#">Arcade</a></li>
+					<li class="dropdown"><a href="#">Parking</a></li>
+				</ul>
+			</div>
+
+			<button class="button grid-item" type="submit">Search</button>
+		</section>
+	</div>
+
+	<footer>
+		<p>Best School</p>
+	</footer>
+</body>
+
+</html>

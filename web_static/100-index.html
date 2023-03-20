@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AirBnB Clone</title>
+	<link rel="stylesheet" href="styles/3-header.css">
+	<link rel="stylesheet" href="styles/3-footer.css">
+	<link rel="stylesheet" href="styles/4-common.css">
+	<link rel="stylesheet" href="styles/6-filters.css">
+	<link rel="stylesheet" href="styles/100-places.css">
+	<link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<header>
+		<nav class="logo"></nav>
+	</header>
+
+	<div class="container">
+		<section class="filters">
+			<div class="filter grid-item locations">
+				<h3>States</h3>
+				<h4>New York, California...</h4>
+
+				<ul class="popover">
+					<li class="dropdown">
+						<h2 class="state">New York:</h2>
+						<ul class="sub-grid-item">
+							<li><a href="#">Manhattan</a></li>
+							<li><a href="#">Queens</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown">
+						<h2 class="state">California:</h2>
+						<ul class="sub-grid-item">
+							<li><a href="#">Los Angeles</a></li>
+							<li><a href="#">Palo Alto</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="filter grid-item amenities">
+				<h3>Amenities</h3>
+				<h4>Wi-Fi, Pool...</h4>
+
+				<ul class="popover">
+					<li class="dropdown"><a href="#">Wi-Fi</a></li>
+					<li class="dropdown"><a href="#">Kitchen</a></li>
+					<li class="dropdown"><a href="#">Private Yard</a></li>
+					<li class="dropdown"><a href="#">Swimming Pool</a></li>
+				</ul>
+			</div>
+
+			<button class="button grid-item" type="submit">Search</button>
+		</section>
+
+		<section class="places">
+			<h1>Places</h1>
+
+			<article class="place">
+				<div class="info">
+					<h2>My Condo</h2>
+					<div class="price_by_night">$99</div>
+				</div>
+
+				<div class="information">
+					<div class="max_guest">2 Guests</div>
+					<div class="number_rooms">2 Bedrooms</div>
+					<div class="number_bathrooms">1 Bathroom</div>
+				</div>
+
+				<div class="user">
+					<p><strong>Owner:</strong> Agu Dike</p>
+				</div>
+
+				<div class="description">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati consectetur quia nisi
+						corporis! Vero nostrum incidunt recusandae voluptatum. Quae quia ex minima magnam tempora quas
+						voluptates reiciendis id sit explicabo?</p>
+				</div>
+
+				<div class="amenity">
+					<h2>Amenities</h2>
+					<ul>
+						<li class="wifi"><span>Wi-Fi</span></li>
+						<li class="tv"><span>Smart TV</span></li>
+						<li class="meal"><span>Kitchen</span></li>
+					</ul>
+				</div>
+
+				<div class="reviews">
+					<h2>2 Reviews</h2>
+					<ul>
+						<li>
+							<h3><strong>From Freddy Krueger on the 11th of November 2022</strong></h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga illum debitis fugiat
+								totam, sed hic exercitationem ipsam qui?</p>
+						</li>
+						<li>
+							<h3><strong>From Rick Sanchez on the 13th of December 2017</strong></h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga illum debitis fugiat
+								totam, sed hic exercitationem ipsam qui?</p>
+						</li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="place">
+				<div class="info">
+					<h2>Beachfront Suite</h2>
+					<div class="price_by_night">$180</div>
+				</div>
+
+				<div class="information">
+					<div class="max_guest">5 Guests</div>
+					<div class="number_rooms">3 Bedrooms</div>
+					<div class="number_bathrooms">3 Bathrooms</div>
+				</div>
+
+				<div class="user">
+					<p><strong>Owner:</strong> Bassie Inyang</p>
+				</div>
+
+				<div class="description">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officia debitis autem hic!
+						Facilis, excepturi corrupti? Rem quibusdam excepturi, vero sit animi molestiae delectus? Eum
+						minima aut magni error ea?
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam optio unde magni alias, distinctio
+						libero ducimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div>
+
+				<div class="amenity">
+					<h2>Amenities</h2>
+					<ul>
+						<li class="game"><span>Game Console</span></li>
+						<li class="gym"><span>Private Gym</span></li>
+						<li class="pool"><span>Infinity Pool</span></li>
+					</ul>
+				</div>
+
+				<div class="reviews">
+					<h2>1 Review</h2>
+					<ul>
+						<li>
+							<h3>From Jason Voorhees on the 13th of December 2020<strong></strong></h3>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit Temporibus perferendis nam, saepe
+								pariatur, sit quae eligendi fuga laborum aliquid earum eaque necessitatibus deleniti
+								velit quam doloremque incidunt nesciunt asperiores! Exercitationem!</p>
+						</li>
+					</ul>
+				</div>
+			</article>
+
+			<article class="place">
+				<div class="info">
+					<h2>Tiny Cottage</h2>
+					<div class="price_by_night">$75</div>
+				</div>
+
+				<div class="information">
+					<div class="max_guest">1 Guest</div>
+					<div class="number_rooms">1 Bedroom</div>
+					<div class="number_bathrooms">1 Bathroom</div>
+				</div>
+
+				<div class="user">
+					<p><strong>Owner:</strong> Hamid Salihu</p>
+				</div>
+
+				<div class="description">
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, distinctio! Fugiat, ducimus
+						veniam. Accusantium provident eligendi labore temporibus blanditiis ullam consectetur
+						necessitatibus quia corporis voluptas sequi commodi hic, est laborum?
+						Deleniti ipsum architecto mollitia dignissimos! Suscipit quisquam adipisci accusantium sed,
+						dolorem illum quis officiis provident, iste deleniti minus magnam. Non sed minus facere eius
+						alias consectetur deleniti? Reiciendis, tenetur dolore?</p>
+				</div>
+
+				<div class="amenity">
+					<h2>Amenities</h2>
+					<ul>
+						<li class="wifi"><span>Wi-Fi</span></li>
+						<li class="pet"><span>Pet Friendly</span></li>
+
+					</ul>
+				</div>
+
+				<div class="reviews">
+					<h2>3 Reviews</h2>
+					<ul>
+						<li>
+							<h3><strong>From Roger Smith on the 4th of July 2021</strong></h3>
+							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+						</li>
+						<li>
+							<h3><strong>From Stewie Griffin on the 1st of January 2023</strong></h3>
+							<p>Quaerat nemo obcaecati rerum quod iure nam, sint vel natus, exercitationem ipsa et porro
+								hic quidem non.</p>
+						</li>
+						<li>
+							<h3><strong>From Eren Yeager on the 14th of February 2019</strong></h3>
+							<p>Assumenda ab accusantium ipsum ad!</p>
+						</li>
+					</ul>
+				</div>
+			</article>
+		</section>
+	</div>
+
+	<footer>
+		<p>Best School</p>
+	</footer>
+</body>
+
+</html>
+
+<!-- <p>Amenity class icons provided by <a target="_blank" href="https://icons8.com">Icons8</a>
+</p> -->

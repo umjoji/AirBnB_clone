@@ -1,12 +1,19 @@
 #!/usr/bin/python3
 """file_storage module contains a storage class for storing class objects
 """
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 import json
 
 
 class FileStorage():
-    """Serializes instances to JSON file and deserializes JSON file to instance
+    """
+    Serializes instances to JSON file and deserializes JSON file to instance
 
     Attributes:
         __file_path (str): path of JSON file in directory
@@ -20,7 +27,8 @@ class FileStorage():
         return self.__objects
 
     def new(self, obj):
-        """Appends a newly created object to the __objects dictionary
+        """
+	Appends a newly created object to the __objects dictionary
 
         Args:
             obj (object): BaseModel class instance
@@ -30,8 +38,8 @@ class FileStorage():
 
     def save(self):
         """Serializes __objects to the JSON file at __file_path"""
+        objs = {key: obj.to_dict() for key, obj in self.__objects.items()}
         with open(self.__file_path, 'w') as f:
-            objs = {key: obj.to_dict() for key, obj in self.__objects.items()}
             json.dump(objs, f)
 
     def reload(self):

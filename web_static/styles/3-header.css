@@ -1,0 +1,18 @@
+header {
+	height: 70px;
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+
+	border-bottom: 1px solid #CCCCCC;
+	background-color: white;
+}
+
+.logo::before {
+	content: url("../images/logo.png");
+	display: block;
+	margin-left: 20px;
+}
